@@ -1,0 +1,8 @@
+.createAccount__signin > span {
+  color: #0066c0;
+  font-size: 13px;
+  cursor: pointer;
+}
+.createAccount__signin > span:hover {
+  text-decoration: underline;
+}

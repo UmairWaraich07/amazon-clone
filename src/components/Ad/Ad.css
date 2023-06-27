@@ -1,0 +1,22 @@
+.ad {
+  width: 100%;
+  height: 100%;
+  margin: 20px auto;
+  cursor: pointer;
+  overflow: hidden;
+}
+.ad__img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.2s;
+}
+
+.ad__img:hover {
+  transform: scale(1.01);
+}
+@media (max-width: 768px) {
+  .ad {
+    margin: 10px auto;
+  }
+}

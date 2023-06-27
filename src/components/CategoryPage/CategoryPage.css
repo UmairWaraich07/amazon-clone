@@ -1,0 +1,31 @@
+.categoryPage {
+  margin: auto;
+  max-width: 1500px;
+  position: relative;
+}
+.categoryPage__imageDiv {
+  max-height: 250px;
+}
+.categoryPage__image {
+  object-fit: contain;
+  max-width: 100%;
+}
+.fade {
+  height: 7rem;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
+.categoryPage__productList {
+  /* position: absolute; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* top: 45vh; */
+  margin: 20px;
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .categoryPage__productList {
+    margin: 0;
+    grid-template-columns: repeat(1, auto);
+  }
+}

@@ -1,0 +1,245 @@
+.header {
+  position: sticky;
+  top: 0;
+  color: #fff;
+  width: 100%;
+  background-color: #131921;
+  z-index: 100;
+}
+.header__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 16px;
+  gap: 20px;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+@media (max-width: 1200px) {
+  .header {
+    gap: 10px;
+  }
+}
+
+.header__logo > img {
+  object-fit: contain;
+  width: 100px;
+  padding-top: 10px;
+  cursor: pointer;
+}
+.header__logo > img:hover {
+  outline: 1px solid white;
+  border-radius: 2px;
+}
+.header__location {
+  display: flex;
+  align-items: flex-end;
+  padding: 7px 14px;
+  cursor: pointer;
+}
+.header__location > .MuiSvgIcon-root {
+  font-size: 20px !important;
+}
+.header__location:hover {
+  outline: 1px solid white;
+  border-radius: 2px;
+}
+@media (max-width: 900px) {
+  .header__location {
+    display: none;
+  }
+}
+
+.header__linkToSign {
+  text-decoration: none;
+  color: white;
+}
+
+.header__topLine {
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+.header__downLine {
+  font-size: 14px;
+}
+
+.header__search {
+  flex: 1;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+}
+.header__option {
+  padding: 7px 14px;
+  cursor: pointer;
+}
+.header__option:hover {
+  outline: 1px solid white;
+  border-radius: 2px;
+}
+
+.header__cart {
+  padding: 7px 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+.header__cart:hover {
+  outline: 1px solid white;
+  border-radius: 2px;
+}
+
+.header__menu {
+  display: none;
+}
+
+.header__mobile {
+  background-color: #131921;
+  padding: 6px 16px;
+
+  display: none;
+}
+@media (max-width: 768px) {
+  .header {
+    padding-bottom: 10px;
+  }
+
+  .header__logo > img {
+    width: 80px;
+  }
+  .header__search {
+    display: none;
+  }
+  .header__nav {
+    display: none;
+  }
+  .header__mobile {
+    display: block;
+    padding-top: 5px;
+  }
+  .header__menu {
+    display: block;
+  }
+}
+
+/**
+* !Header Navbar 
+**/
+.header__navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #232f3e;
+  padding-inline: 16px;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .header__navbar {
+    display: none;
+  }
+}
+.header__navbarLeft {
+  display: flex;
+  align-items: center;
+}
+.header__navbarIcon {
+  display: flex;
+  align-items: center;
+  padding: 8px 9px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.header__navbarIcon > span {
+  margin-left: 3px;
+}
+.header__navbarItem > h4 {
+  margin: 5px 0 6px 0;
+  padding: 8px 9px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.header__navbarRight > h4 {
+  padding: 8px 9px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.header__navbarRight > h4:hover,
+.header__navbarItem:hover,
+.header__navbarIcon:hover {
+  outline: 1px solid white;
+  border-radius: 2px;
+}
+
+/** 
+* ! styles for Header Sidebar
+*/
+.header__sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100dvh;
+  width: 300px;
+  z-index: 50;
+  background-color: white;
+  color: #0f1111;
+  transition: all 0.2s ease-out;
+}
+.header__sidebarClose {
+  display: flex;
+  justify-content: end;
+  padding: 10px;
+  cursor: pointer;
+}
+.header__signIn {
+  text-decoration: none;
+  background: #232f3e;
+  display: block;
+  color: #fff;
+  font-size: 1.125rem;
+  padding: 10px 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.header__sidebarSignOut {
+  color: #0066c0;
+  text-decoration: underline;
+  padding-block: 8px;
+  cursor: pointer;
+}
+.header__signIn:hover {
+  text-decoration: underline;
+}
+.header__sidebarMenu {
+  display: grid;
+  padding: 20px;
+}
+.header__sidebarItem {
+  padding-block: 8px;
+  border-bottom: 1px solid rgb(194, 192, 192);
+}
+.header__sidebarLink {
+  text-decoration: none;
+  color: #0f1111;
+}
+@media (max-width: 768px) {
+  .header__sidebarLink {
+    font-size: 14px;
+  }
+  .header__sidebarSignOut {
+    font-size: 14px;
+  }
+}
