@@ -72,7 +72,7 @@ const Header = () => {
             alt="Amazon Logo"
             onClick={() => navigate("/")}
           />
-          <div className="header__location">
+          <div className="header__location" onClick={() => navigate("/orders")}>
             <FmdGoodOutlinedIcon />
             <div>
               <p className="header__topLine">Deliver to</p>
@@ -104,7 +104,7 @@ const Header = () => {
               </h4>
             </Link>
           </div>
-          <div className="header__option">
+          <div className="header__option" onClick={() => navigate("/orders")}>
             <p className="header__topLine">Returns</p>
             <h4 className="header__downLine">& Orders</h4>
           </div>

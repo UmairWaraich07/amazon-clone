@@ -4,9 +4,11 @@ import { useDispatch } from "react-redux";
 import { logOut } from "../../features/userSlice";
 import { auth } from "../../firebase";
 import { closeModal } from "../../features/modalSlice";
+import { useNavigate } from "react-router-dom";
 
 function Modal() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   return (
     <aside className="modal-container">
@@ -19,10 +21,12 @@ function Modal() {
               dispatch(logOut());
               auth.signOut();
               dispatch(closeModal());
+              navigate("/");
             }}
           >
             Yes
           </button>
+
           <button
             className="modalBtn clear-btn"
             onClick={() => dispatch(closeModal())}

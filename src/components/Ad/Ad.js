@@ -12,9 +12,7 @@ const Ad = ({ img, category }) => {
         alt=""
         data-link={category}
         className="ad__img"
-        onClick={(e) =>
-          navigate(`/${e.target.getAttribute("data-link")}`, { replace: true })
-        }
+        onClick={(e) => navigate(`/${e.target.getAttribute("data-link")}`)}
       />
     </div>
   );

@@ -23,9 +23,35 @@ export const basketSlice = createSlice({
       let id = data.id;
       state.basketData = state.basketData.filter((item) => item.id !== id);
     },
+    increment: (state, action) => {
+      const id = action.payload;
+      let find = state.basketData.find((item) => item.id === id);
+      if (find) {
+        find.quantity += 1;
+      }
+    },
+    decrement: (state, action) => {
+      const id = action.payload;
+      let find = state.basketData.find((item) => item.id === id);
+      if (find) {
+        find.quantity -= 1;
+      }
+      if (find.quantity === 0) {
+        state.basketData = state.basketData.filter((item) => item.id !== id);
+      }
+    },
+    emptyBasket: (state) => {
+      state.basketData = [];
+    },
   },
 });
 
-export const { addToBasket, removeFromBasket } = basketSlice.actions;
+export const {
+  addToBasket,
+  removeFromBasket,
+  increment,
+  decrement,
+  emptyBasket,
+} = basketSlice.actions;
 
 export default basketSlice.reducer;

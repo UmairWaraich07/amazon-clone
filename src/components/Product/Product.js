@@ -2,11 +2,13 @@ import React from "react";
 import "./Product.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addToBasket } from "../../features/basketSlice";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Product = ({ id, desc, image, price, rating }) => {
   const dispatch = useDispatch();
 
-  const { basketData } = useSelector((store) => store.basket);
+  // const { basketData } = useSelector((store) => store.basket);
 
   return (
     <article className="product">
@@ -29,7 +31,7 @@ const Product = ({ id, desc, image, price, rating }) => {
 
       <button
         className="btn"
-        onClick={() =>
+        onClick={() => {
           dispatch(
             addToBasket({
               id,
@@ -39,11 +41,33 @@ const Product = ({ id, desc, image, price, rating }) => {
               rating,
               quantity: 1,
             })
-          )
-        }
+          );
+          toast("🧺 Item added to cart", {
+            position: "bottom-center",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        }}
       >
         Add to basket
       </button>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </article>
   );
 };

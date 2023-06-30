@@ -1,0 +1,23 @@
+.signInPopup {
+  padding: 40px;
+  border-top: 1px solid rgb(194, 192, 192);
+  border-bottom: 1px solid rgb(194, 192, 192);
+  background-color: white;
+  display: grid;
+  place-items: center;
+  gap: 5px;
+}
+.signInPopup__title {
+  font-size: 15px;
+}
+.signInPopup > button {
+  width: 300px;
+  padding: 4px 40px;
+}
+.signInPopup__new {
+  font-size: 12px;
+}
+.signInPopup__new > span {
+  color: #007185;
+  cursor: pointer;
+}

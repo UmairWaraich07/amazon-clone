@@ -5,21 +5,24 @@ import Ad from "../../components/Ad/Ad";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import FlipMove from "react-flip-move";
+import SignInPopup from "../../components/SignInPopup/SignInPopup";
+
+export const calculateTotalItems = (basketData) => {
+  return basketData?.map((item) => item.quantity).reduce((x, y) => x + y, 0);
+};
+
+export const calculateTotalBill = (basketData) => {
+  return basketData
+    ?.map((item) => item.price * item.quantity)
+    .reduce((x, y) => x + y, 0)
+    .toFixed(2);
+};
 
 const ShoppingCart = () => {
   const navigate = useNavigate();
   const { basketData } = useSelector((store) => store.basket);
+  const { user } = useSelector((store) => store.user);
 
-  const calculateTotalBill = () => {
-    return basketData
-      .map((item) => item.price * item.quantity)
-      .reduce((x, y) => x + y, 0)
-      .toFixed(2);
-  };
-
-  const calculateTotalItems = () => {
-    return basketData.map((item) => item.quantity).reduce((x, y) => x + y, 0);
-  };
   return (
     <section className="shoppingCart">
       <div>
@@ -64,11 +67,11 @@ const ShoppingCart = () => {
               Subtotal ({" "}
               <span className="shoppingCart__totalItem">
                 {" "}
-                {calculateTotalItems()}{" "}
+                {calculateTotalItems(basketData)}{" "}
               </span>{" "}
               items ):{" "}
               <span className="shoppingCart__totalBill">
-                ${calculateTotalBill()}
+                ${calculateTotalBill(basketData)}
               </span>
             </p>
           </div>
@@ -79,23 +82,38 @@ const ShoppingCart = () => {
             Subtotal ({" "}
             <span className="shoppingCart__totalItem">
               {" "}
-              {calculateTotalItems()}{" "}
+              {calculateTotalItems(basketData)}{" "}
             </span>{" "}
             items ):{" "}
             <span className="shoppingCart__totalBill">
-              $ {calculateTotalBill()}{" "}
+              $ {calculateTotalBill(basketData)}{" "}
             </span>
           </p>
-          <button className="btn">Proceed to checkout</button>
+          <button
+            className="btn"
+            onClick={() => {
+              if (basketData.length > 0) {
+                navigate("/payment");
+              }
+            }}
+          >
+            Proceed to checkout
+          </button>
         </div>
       </div>
 
-      <div className="shoppingCart__ad">
+      {!user && (
+        <section>
+          <SignInPopup message="See personalized recommendations" />
+        </section>
+      )}
+
+      {/* <div className="shoppingCart__ad">
         <Ad
           img="https://images-na.ssl-images-amazon.com/images/G/01/AMAZON_FASHION/2023/SITE_FLIPS/SUM23/BROWSE/L0/DESKTOP/image_11._CB1686251228_.jpg"
           category="mensclothing"
         />
-      </div>
+      </div> */}
     </section>
   );
 };

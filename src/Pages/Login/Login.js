@@ -18,12 +18,12 @@ const Login = () => {
       .then((userAuth) => {
         dispatch(
           logIn({
-            id: userAuth.user.uid,
-            email: userAuth.user.email,
-            name: userAuth.user.displayName,
+            id: userAuth?.user?.uid,
+            email: userAuth?.user?.email,
+            name: userAuth?.user?.displayName,
           })
         );
-        navigate("/");
+        navigate(-1, { replace: true });
       })
       .catch((error) => alert(error.message));
   };
@@ -40,7 +40,7 @@ const Login = () => {
         <div className="login__content">
           <h1>Sign in</h1>
 
-          <form className="login__form" onSubmit={signIn}>
+          <form className="login__form">
             <h4>Email</h4>
             <input
               type="email"
@@ -57,7 +57,7 @@ const Login = () => {
               placeholder="Password"
               required
             />
-            <button className="btn" type="submit">
+            <button className="btn" type="submit" onClick={signIn}>
               Continue
             </button>
           </form>

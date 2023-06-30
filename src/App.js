@@ -12,6 +12,16 @@ import { useEffect } from "react";
 import { auth } from "./firebase";
 import { useDispatch } from "react-redux";
 import { logIn, logOut } from "./features/userSlice";
+import Payment from "./Pages/Payment/Payment";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import Success from "./Pages/Success/Success";
+import Orders from "./Pages/Orders/Orders";
+import ScrollToTop from "./ScrollToTop";
+
+const stripePromise = loadStripe(
+  "pk_test_51NNtUUFpq8D4hAbaDZS9gR98QmGs4o43qnBjgml4NFoNYW3yXTSvbjZxXWALlbBSINEeuqAHQb3EDVR00xb8df6W00DtoLWdRu"
+);
 
 function App() {
   const dispatch = useDispatch();
@@ -21,9 +31,9 @@ function App() {
       //user is logged In
       dispatch(
         logIn({
-          email: userAuth.email,
-          id: userAuth.uid,
-          name: userAuth.displayName,
+          email: userAuth?.email,
+          id: userAuth?.uid,
+          name: userAuth?.displayName,
         })
       );
       if (userAuth) {
@@ -37,87 +47,121 @@ function App() {
 
   return (
     <Router>
-      <div className="app">
-        <Routes>
-          <Route
-            path="/"
-            exact
-            element={
-              <>
-                <Header />
-                <Home />
-                <Footer />
-              </>
-            }
-          />
-          <Route
-            path="/electronics"
-            element={
-              <>
-                <Header />
-                <CategoryPage
-                  fetchUrl={requests.fetchElectronics}
-                  img="https://images-na.ssl-images-amazon.com/images/G/01/consumerelectronics/CAC/1435129_us_home_entertainment_7_1500x440.jpg"
-                />
-                <Footer />
-              </>
-            }
-          />
-          <Route
-            path="/mensclothing"
-            element={
-              <>
-                <Header />
-                <CategoryPage
-                  fetchUrl={requests.fetchMenClothing}
-                  img="https://m.media-amazon.com/images/S/stores-image-uploads-na-prod/3/AmazonStores/ATVPDKIKX0DER/18550bbab17109e8cf39a2eb27edadb7.w3000.h600._CR0%2C0%2C3000%2C600_SX1920_.jpg"
-                />
-                <Footer />
-              </>
-            }
-          />
-          <Route
-            path="/womensclothing"
-            element={
-              <>
-                <Header />
-                <CategoryPage
-                  fetchUrl={requests.fetchWomenClothing}
-                  img="https://images-na.ssl-images-amazon.com/images/G/01/AMAZON_FASHION/2023/SITE_FLIPS/SUM23/BROWSE/L0/DESKTOP/DT_Programs_Ingress._CB1686253586_.gif"
-                />
-                <Footer />
-              </>
-            }
-          />
-          <Route
-            path="/jewellery"
-            element={
-              <>
-                <Header />
-                <CategoryPage
-                  fetchUrl={requests.fetchJewelery}
-                  img="https://images-na.ssl-images-amazon.com/images/G/01/SBP/2020/Lemonade_Refresh/Categories/SB_LS20Refresh_category_HERO_Jewelry_EN_DESKTOP.jpg"
-                />
-                <Footer />
-              </>
-            }
-          />
+      <ScrollToTop>
+        <div className="app">
+          <Routes>
+            <Route
+              path="/"
+              exact
+              element={
+                <>
+                  <Header />
+                  <Home />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/electronics"
+              element={
+                <>
+                  <Header />
+                  <CategoryPage
+                    fetchUrl={requests?.fetchElectronics}
+                    img="https://images-na.ssl-images-amazon.com/images/G/01/consumerelectronics/CAC/1435129_us_home_entertainment_7_1500x440.jpg"
+                  />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/mensclothing"
+              element={
+                <>
+                  <Header />
+                  <CategoryPage
+                    fetchUrl={requests?.fetchMenClothing}
+                    img="https://m.media-amazon.com/images/S/stores-image-uploads-na-prod/3/AmazonStores/ATVPDKIKX0DER/18550bbab17109e8cf39a2eb27edadb7.w3000.h600._CR0%2C0%2C3000%2C600_SX1920_.jpg"
+                  />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/womensclothing"
+              element={
+                <>
+                  <Header />
+                  <CategoryPage
+                    fetchUrl={requests?.fetchWomenClothing}
+                    img="https://images-na.ssl-images-amazon.com/images/G/01/AMAZON_FASHION/2023/SITE_FLIPS/SUM23/BROWSE/L0/DESKTOP/DT_Programs_Ingress._CB1686253586_.gif"
+                  />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/jewellery"
+              element={
+                <>
+                  <Header />
+                  <CategoryPage
+                    fetchUrl={requests?.fetchJewelery}
+                    img="https://images-na.ssl-images-amazon.com/images/G/01/SBP/2020/Lemonade_Refresh/Categories/SB_LS20Refresh_category_HERO_Jewelry_EN_DESKTOP.jpg"
+                  />
+                  <Footer />
+                </>
+              }
+            />
 
-          <Route
-            path="/shoppingcart"
-            element={
-              <>
-                <Header />
-                <ShoppingCart />
-                <Footer />
-              </>
-            }
-          />
+            <Route
+              path="/shoppingcart"
+              element={
+                <>
+                  <Header />
+                  <ShoppingCart />
+                  <Footer />
+                </>
+              }
+            />
 
-          <Route path="/signin" element={<Login />} />
-          <Route path="/signup" element={<CreateAccount />} />
-        </Routes>
-      </div>
+            <Route path="/signin" element={<Login />} />
+            <Route path="/signup" element={<CreateAccount />} />
+
+            <Route
+              path="/payment"
+              element={
+                <>
+                  <Header />
+                  <Elements stripe={stripePromise}>
+                    <Payment />
+                  </Elements>
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/success"
+              element={
+                <>
+                  <Header />
+                  <Success />
+                </>
+              }
+            />
+
+            <Route
+              path="/orders"
+              element={
+                <>
+                  <Header />
+                  <Orders />
+                </>
+              }
+            />
+          </Routes>
+        </div>
+      </ScrollToTop>
     </Router>
   );
 }

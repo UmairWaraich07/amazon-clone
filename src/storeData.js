@@ -35,32 +35,32 @@ export const productSectionData = [
 
 export const rowOneData = [
   {
-    id: "001",
-    desc: "Fitbit Versa 3 Health & Fitness Smartwatch with GPS",
-    image:
-      "https://m.media-amazon.com/images/I/61ZXwnqqOuS._AC_UY327_FMwebp_QL65_.jpg",
+    id: "21",
+    desc: "BestOffice High-Back Gaming Chair with Lumbar Support for Back Pain Women, Men (White)",
+    image: "https://m.media-amazon.com/images/I/61t4mpabO+L._AC_SX679_.jpg",
     price: 154,
     rating: 5,
   },
   {
-    id: "002",
-    desc: "Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin",
-    image: "https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg",
-    price: 599,
-    rating: 3,
+    id: "22",
+    desc: "NEW Razer BlackShark V2 Pro Wireless Gaming Headset 2023 Edition",
+    image:
+      "https://m.media-amazon.com/images/I/71u8XpmcCXL._AC_UY327_FMwebp_QL65_.jpg",
+    price: 199,
+    rating: 4,
   },
 ];
 
 export const rowTwoData = [
   {
-    id: "001",
+    id: "23",
     desc: "Apple iPhone 12 Pro, 128GB, Pacific Blue - Fully Unlocked (Renewed)",
     image: "https://m.media-amazon.com/images/I/51n-83C8HYL._AC_SX679_.jpg",
     price: 525,
     rating: 5,
   },
   {
-    id: "002",
+    id: "24",
     desc: "What We Owe the Future",
     image:
       "https://d1b14unh5d6w7g.cloudfront.net/1541618629.01.S001.LXXXXXXX.jpg?Expires=1687610558&Signature=IOfhabP5htmSC1T90g-ANwyVcbSGestngDyZswpCxWOS8O08i639O0VZSSSbt09vGyRn90nBRf1c-FVJhcFm86coXMVIPwcZDJT-0v6vSTE1HMtAe2DZ05njJKWSkcKebNwLRQvApDN415uVKgCR~yzmeDPF0lVHcytxio1m9yI_&Key-Pair-Id=APKAIUO27P366FGALUMQ",
@@ -68,16 +68,16 @@ export const rowTwoData = [
     rating: 4,
   },
   {
-    id: "003",
-    desc: "ONEPLUS 10T | Jade Green | 5G Unlocked Android Smartphone U.S Version",
-    image: "https://m.media-amazon.com/images/I/713aBvRbEpL._AC_SX679_.jpg",
-    price: 649,
+    id: "25",
+    desc: "Apple 2023 MacBook Pro Laptop M2 Pro chip with 12‑core CPU and 19‑core GPU",
+    image: "https://m.media-amazon.com/images/I/61fd2oCrvyL._AC_SX679_.jpg",
+    price: 2326.65,
     rating: 5,
   },
 ];
 export const rowThreeData = [
   {
-    id: "001",
+    id: "26",
     desc: "Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED",
     image: "https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg",
     price: 279,

@@ -4,6 +4,7 @@ import "./CreateAccount.css";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
 import { useDispatch } from "react-redux";
+import { logIn } from "../../features/userSlice";
 
 const CreateAccount = () => {
   const navigate = useNavigate();
@@ -22,13 +23,15 @@ const CreateAccount = () => {
             displayName: name,
           })
           .then(() =>
-            dispatch({
-              email: userAuth.user.email,
-              id: userAuth.user.uid,
-              name: userAuth.user.displayName,
-            })
+            dispatch(
+              logIn({
+                email: userAuth?.user.email,
+                id: userAuth?.user.uid,
+                name: userAuth?.user.displayName,
+              })
+            )
           );
-        navigate("/");
+        navigate("/", { replace: true });
       })
       .catch((error) => alert(error.message));
   };
