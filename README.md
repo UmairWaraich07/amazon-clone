@@ -15,8 +15,6 @@ This is a full-stack Amazon clone built using React.js. It aims to replicate the
 
 - React.js: A JavaScript library for building user interfaces.
 - Node.js: A runtime environment for executing JavaScript code on the server.
-- Express.js: A web application framework for Node.js.
-- MongoDB: A NoSQL database used for data storage.
 - Firebase: A platform for building web and mobile applications.
 - Firebase Authentication: Provides user authentication services.
 - Firebase Cloud Functions: Enables serverless backend functionality, including integration with Stripe for payment processing.
