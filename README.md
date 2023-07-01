@@ -1,46 +1,41 @@
-# Getting Started with Create React App and Redux
+# Amazon Clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+This is a full-stack Amazon clone built using React.js. It aims to replicate the core functionality and user interface of the popular e-commerce platform.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- User authentication (sign up, sign in, sign out) using Firebase authentication.
+- Browse and search products fetched from the [Fakestore API](https://fakestoreapi.com/).
+- Add products to the shopping cart.
+- Update quantity and remove items from the cart.
+- Checkout and place orders using the Stripe payment gateway integrated with Firebase Cloud Functions.
+- View order history stored in Firebase Firestore.
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React.js: A JavaScript library for building user interfaces.
+- Node.js: A runtime environment for executing JavaScript code on the server.
+- Express.js: A web application framework for Node.js.
+- MongoDB: A NoSQL database used for data storage.
+- Firebase: A platform for building web and mobile applications.
+- Firebase Authentication: Provides user authentication services.
+- Firebase Cloud Functions: Enables serverless backend functionality, including integration with Stripe for payment processing.
+- Firebase Firestore: A NoSQL database for storing user data and orders.
+- Redux: A predictable state container for managing application state.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Deployment
 
-### `npm test`
+The project is deployed on Firebase and can be accessed at [https://clone-6ce5f.web.app](https://clone-6ce5f.web.app/).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Setup
 
-### `npm run build`
+To run this project locally, follow these steps:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository: `git clone https://github.com/UmairWaraich07/amazon-clone.git`
+2. Install the dependencies: `npm install`
+3. Start the development server: `npm start`
+4. Open your browser and navigate to `http://localhost:3000`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Please feel free to explore the codebase and make any suggestions or improvements.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Happy shopping on the Amazon Clone!
